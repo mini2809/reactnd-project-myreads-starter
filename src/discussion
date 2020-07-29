@@ -1,0 +1,37 @@
+#create 3 arrays acording to shelves .aur 
+on-click 
+call updateAPI with book-id and target-shelf
+]
+
+objtonum = {'currentlyReading':0, wantToRead:1, read:2}
+		numtoobj = [0:currentlyReading, 1:wantToRead, 2:read]
+
+		 let x = objtonum[prev_shelf]
+		 let y = numtoobj[x]
+
+		 if(b.shelf ==== 'currentlyReading')
+		 	currentlyReading -> remove
+
+		 state = [[],[],[]]
+		 setState((prev)=>{
+		 	let x = objtonum[prev_shelf]
+			prev[x].push(new_obj)
+
+		 })
+
+		 1. getobject(book_id)
+		 2. update(book_id, target_shelf)
+		 3. getobject() <- 1 time 
+		 4. setState() <-- 
+
+
+			1. getobject(book_id)
+		 2.a update(book_object, target_shelf)
+		 2.b setState(old_shelf -> remove, target Shelf -> add object)
+
+
+		 this.setState((prev)=> {
+		 	prev.currentlyReading.filter(book_object);
+		 	prev.wantToRead
+		 	prev.read
+		 })
