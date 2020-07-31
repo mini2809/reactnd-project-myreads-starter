@@ -2,10 +2,11 @@ import React ,{ Component } from 'react'
 import './App.css'
 import * as BooksAPI from './BooksAPI'
 
-class WantToRead extends Component{
+class Search extends Component{
 
 	handleClick=(e,id,prevShelf)=>{
 		//console.log("handlechange called")
+		console.log("fom handleclick prevShelf=",prevShelf)
 		e.preventDefault()
 		let targetShelf = e.target.value
 		BooksAPI.get(id)
@@ -15,19 +16,19 @@ class WantToRead extends Component{
 			this.props.updateUi(id,prevShelf,targetShelf,b)
 		})
 	}
-
-
-
+	
 	render(){
-		let array = this.props.wantToRead
-		//console.log("in want to read = ", this.props.wantToRead)
+		let AllBooks = this.props.Allbooks
+		console.log(AllBooks.length)
 		return(
-			<ol className="books-grid">
-				{array.map((b)=>(
+			<div>
+				<ol className="books-grid">
+				
+					{AllBooks.map((b)=>(
 					<li key = {b.id}>
 					    <div className="book"> 
 					      <div className="book-top">
-								<div className="book-cover"  style={{ backgroundImage: b.hasOwnProperty('imageLinks') === false ? "":  'url(\"'+ b.imageLinks.thumbnail+'\")', width: 128 , height: 188 }}>
+								<div className="book-cover" style={{ backgroundImage: b.hasOwnProperty('imageLinks') === false ? "":  'url(\"'+ b.imageLinks.thumbnail+'\")', width: 128 , height: 188 }}>
 					       </div> 
 					        <div className="book-shelf-changer">
 					          <select onClick={(e)=>this.handleClick(e,b.id,b.shelf)}>
@@ -44,8 +45,10 @@ class WantToRead extends Component{
 					    </div>
 					</li>
 				))}
+			
 			</ol>
+			</div>
 		)
 	}
-} 
-export default WantToRead
+}
+export default Search

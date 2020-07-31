@@ -18,13 +18,14 @@ class CurrentlyReading extends Component{
 
 	render(){
 		let currentlyReading = this.props.currentlyReading;
+		//console.log("in want to read = ", this.props.currentlyReading)
 		return(
 			<ol className="books-grid">
 				{currentlyReading.map((b)=>(
 					<li key = {b.id}>
 					    <div className="book"> 
 					      <div className="book-top">
-								<div className="book-cover" style={{ width: 128 , height: 188, backgroundImage: 'url(\"'+ b.imageLinks.thumbnail+'\")' }}>
+								<div className="book-cover" style={{ backgroundImage: b.hasOwnProperty('imageLinks') === false ? "":  'url(\"'+ b.imageLinks.thumbnail+'\")', width: 128 , height: 188 }}>
 					       </div> 
 					        <div className="book-shelf-changer">
 					          <select onClick={(e)=>this.handleClick(e,b.id,b.shelf)}>
@@ -37,7 +38,7 @@ class CurrentlyReading extends Component{
 					        </div>
 					      </div>
 					      <div className="book-title">{b.title}</div>
-					      <div className="book-authors">{b.authors[0]}</div>
+					      <div className="book-authors">{b.authors}</div>
 					    </div>
 					</li>
 				))}

@@ -15,7 +15,6 @@ class Read extends Component{
 			this.props.updateUi(id,prevShelf,targetShelf,b)
 		})
 	}
-
 	render(){
 		let array = this.props.read
 		//console.log("in read = ", this.props.read) 
@@ -25,7 +24,7 @@ class Read extends Component{
 					<li key = {b.id}>
 					    <div className="book"> 
 					      <div className="book-top">
-								<div className="book-cover" style={{ width: 128 , height: 188, backgroundImage: 'url(\"'+ b.imageLinks.thumbnail+'\")' }}>
+								<div className="book-cover" style={{ backgroundImage: b.hasOwnProperty('imageLinks') === false ? "":  'url(\"'+ b.imageLinks.thumbnail+'\")', width: 128 , height: 188 }}>
 					       </div> 
 					        <div className="book-shelf-changer">
 					          <select onClick={(e)=>this.handleClick(e,b.id,b.shelf)}>
@@ -38,7 +37,7 @@ class Read extends Component{
 					        </div>
 					      </div>
 					      <div className="book-title">{b.title}</div>
-					      <div className="book-authors">{b.authors[0]}</div>
+					      <div className="book-authors">{b.authors}</div>
 					    </div>
 					</li>
 				))}

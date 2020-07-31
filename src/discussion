@@ -35,3 +35,8 @@ objtonum = {'currentlyReading':0, wantToRead:1, read:2}
 		 	prev.wantToRead
 		 	prev.read
 		 })
+		  <ol className="books-grid">
+			 <li>
+			 </ol>
+, backgroundImage: 'url(\"'+ b.imageLinks.thumbnail+'\")'
+style ={ backgroundImage: 'url(\"'+ b.imageLinks.thumbnail+'\")'}
