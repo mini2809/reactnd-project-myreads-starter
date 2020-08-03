@@ -1,4 +1,5 @@
 import React from 'react'
+
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 import  CurrentlyReading  from './CurrentlyReading.js'
@@ -164,7 +165,7 @@ class BooksApp extends React.Component {
           )}
         </div>
       )
-  }
+    })
 }
 
 export default BooksApp
