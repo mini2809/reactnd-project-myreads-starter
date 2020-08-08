@@ -6,10 +6,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-<<<<<<< HEAD
     "react-router-dom": "^5.2.0",
-=======
->>>>>>> 640caecf381257304e770ce9e5f97be9e51961ec
     "react-scripts": "2.1.1"
   },
   "scripts": {
